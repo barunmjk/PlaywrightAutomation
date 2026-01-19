@@ -21,6 +21,7 @@ exports.POMContacts = class Pomcontacts {
     this.emailOptOut="[name='emailoptout']";
     this.reference="[name='reference']";
     this.notifyOwner="[name='notify_owner']";
+    this.portalUser="[name='portal']";
 
   }
   async createContact(firstname, lastname,enterTitle,enterDepartment,enterEmail,enterAssistant,enterAssistentPh) {
@@ -64,5 +65,6 @@ exports.POMContacts = class Pomcontacts {
     await this.page.check(this.emailOptOut);
     await this.page.check(this.reference);
     await this.page.check(this.notifyOwner);
+    await this.page.check(this.portalUser);
   }
 }
