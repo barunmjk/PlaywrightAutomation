@@ -7,7 +7,7 @@ test('handling frame',async ({page})=> {
   const allframe=await page.frames(); //<- total frame we get in array form 
   console.log('all frame is :',allframe.length);
 
-   //approach 1:using url  or url 
+   //approach 1:using url  or name
    //const var =await page.frame('name');
   const frame1 =await page.frame({url:'https://ui.vision/demo/webtest/frames/frame_1.html'});
   await frame1.fill('[name="mytext1"]','hello');

@@ -39,3 +39,5 @@ import {test,expect} from '@playwright/test'
       })
      await page.waitForTimeout(3000);
 })
+
+//hooks is same as in TestNG like @beforesuite and @aftersuite   

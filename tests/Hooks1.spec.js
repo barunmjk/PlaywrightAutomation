@@ -26,6 +26,6 @@ test("add to cart test",async({page})=>{
       await page.click("img[src='imgs/galaxy_s6.jpg']");
       await page.click("a[onclick='addToCart(1)']")
     //logout
-     await page.click("#logout2");
+     await page.click("#logout");
      await page.waitForTimeout(3000);
 })
