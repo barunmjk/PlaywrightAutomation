@@ -8,4 +8,8 @@ test("this is list report2",async({page})=>{
     await page.goto("https://www.amazon.in/")
 
 })
+test("this is list report3",async({page})=>{
+    await page.goto("https://www.zomato.com/")
+
+})
  
