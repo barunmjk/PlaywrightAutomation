@@ -13,18 +13,29 @@ exports.POMContacts = class Pomcontacts {
     this.reportplus = "//img[contains(@onclick,'selectContact')]";
     this.reportid = "//a[contains(text(),'Prasath2429')]";
     this.leadsource = "[name='leadsource']";
-    this.title="[name='title']";
-    this.department="[name='department']";
-    this.email="[name='email']";
-    this.assistant="[name='assistant']";
-    this.assistantph="[name='assistantphone']";
-    this.emailOptOut="[name='emailoptout']";
-    this.reference="[name='reference']";
-    this.notifyOwner="[name='notify_owner']";
+    this.title = "[name='title']";
+    this.department = "[name='department']";
+    this.email = "[name='email']";
+    this.assistant = "[name='assistant']";
+    this.assistantph = "[name='assistantphone']";
+    this.emailOptOut = "[name='emailoptout']";
+    this.reference = "[name='reference']";
+    this.notifyOwner = "[name='notify_owner']";
+    this.officePh = "[name='phone']";
+    this.mob = "[name='mobile']";
+    this.homePh = "[name='homephone']";
+    this.otherph = "[name='otherphone']";
+    this.faxNum = "[name='fax']";
+    this.birthday = "[name='birthday']";
+    this.secEmail = "[name='secondaryemail']";
+    this.dndcall = "[name='donotcall']";
+    this.asGroup = "input[value='T']";
+    this.asGroupId = "[name='assigned_group_id']";
+    this.asUser = "input[value='U']";
+    this.assUserId = "[name='assigned_user_id']";
     this.portalUser="[name='portal']";
-
   }
-  async createContact(firstname, lastname,enterTitle,enterDepartment,enterEmail,enterAssistant,enterAssistentPh) {
+  async contactInformation(firstname, lastname, enterTitle, enterDepartment, enterEmail, enterAssistant, enterAssistentPh, enterOfficeNum, enterMobNum, enterHomePh, enterOtherPh, enterFaxNum, enterBirthday, enterSecEmail) {
     await this.page.click(this.contactsModule);
     await this.page.click(this.plusBtn);
     await this.page.click(this.salu);
@@ -57,14 +68,40 @@ exports.POMContacts = class Pomcontacts {
     await this.page.keyboard.press("ArrowDown");
     await this.page.keyboard.press("ArrowDown");
     await this.page.keyboard.press("Enter");
-    await this.page.fill(this.title,enterTitle);
-    await this.page.fill(this.department,enterDepartment);
-    await this.page.fill(this.email,enterEmail);
-    await this.page.fill(this.assistant,enterAssistant);
-    await this.page.fill(this.assistantph,enterAssistentPh);
+    await this.page.fill(this.title, enterTitle);
+    await this.page.fill(this.department, enterDepartment);
+    await this.page.fill(this.email, enterEmail);
+    await this.page.fill(this.assistant, enterAssistant);
+    await this.page.fill(this.assistantph, enterAssistentPh);
     await this.page.check(this.emailOptOut);
     await this.page.check(this.reference);
     await this.page.check(this.notifyOwner);
-    await this.page.check(this.portalUser);
+    await this.page.fill(this.officePh, enterOfficeNum);
+    await this.page.fill(this.mob, enterMobNum);
+    await this.page.fill(this.homePh, enterHomePh);
+    await this.page.fill(this.otherph, enterOtherPh);
+    await this.page.fill(this.faxNum, enterFaxNum);
+    await this.page.fill(this.birthday, enterBirthday);
+    await this.page.fill(this.secEmail, enterSecEmail);
+    await this.page.check(this.dndcall);
+    await this.page.check(this.asGroup);
+    await this.page.click(this.asGroupId);
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.keyboard.press("Enter");
+    await this.page.waitForTimeout(3000);
+    await this.page.check(this.asUser);
+    await this.page.click(this.assUserId);
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.keyboard.press("ArrowDown");
+    await this.page.keyboard.press("Enter");
+
+  }
+  async customerPortalInformation(){
+     await this.page.check(this.portalUser);
   }
 }
