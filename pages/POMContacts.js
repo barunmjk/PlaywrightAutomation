@@ -1,4 +1,4 @@
-import { LoginPageVtiger } from "./VtigerLogin";
+import { LoginPageVtiger } from "./VtigerLoginLogout";
 
 exports.POMContacts = class Pomcontacts {
   constructor(page) {
@@ -104,4 +104,5 @@ exports.POMContacts = class Pomcontacts {
   async customerPortalInformation(){
      await this.page.check(this.portalUser);
   }
+  
 }
