@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-
+let userName;
 test("post request", async ({ request }) => {
   const response = await request.post(
     "https://petstore.swagger.io/v2/user",
@@ -9,17 +9,24 @@ test("post request", async ({ request }) => {
         "Content-Type": "application/json"
       },
       data: {
-        username: "gobhii@123",
-        firstName: "gobhii",
-        lastName: "prasada",
-        email: "gobhii12@gmail.com",
-        password: "Gobhii@123",
-        phone: "987654212",
+        username: "gobhiii@123",
+        firstName: "gobhiii",
+        lastName: "prasadam",
+        email: "gobhiii12@gmail.com",
+        password: "Gobhiii@123",
+        phone: "9876542125",
         userStatus: 0
       }
     }
   );
-console.log(await response.json());
-  // Assertion
+const res=await response.json();
+   userName=res.username
+   
   expect(response.status()).toBe(200);
 });
+
+test("this is Get Test",async({request})=>{
+   const response=await request.get("https://petstore.swagger.io/v2/user/"+userName);
+   console.log(await response.json());
+   expect(response.status()).toBe(200);
+})
